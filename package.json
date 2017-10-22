@@ -3,6 +3,22 @@
   "version": "0.0.0",
   "description": "",
   "main": "lib/index.js",
+  "scripts": {
+    "lint:code": "codeclimate analyze",
+    "lint:fix": "standard --fix",
+    "test": "npm run test:mocha && standard",
+    "test:mocha": "nyc --all mocha && nyc report --reporter=html"
+  },
   "author": "Jon Lauridsen <mail@jonlauridsen.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dom-compare": "^0.3.1",
+    "lodash.zip": "^4.2.0",
+    "xmldom": "^0.1.27"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
+    "standard": "^10.0.3"
+  }
 }
