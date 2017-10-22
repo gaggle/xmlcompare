@@ -10,24 +10,24 @@ describe('xmlcompare', function () {
   })
 
   it('matches multiple blocks', function () {
-    xmlcompare(`<div></div>\n<div></div>`, `<div></div> <div></div>`)
+    xmlcompare('<div></div>\n<div></div>', '<div></div> <div></div>')
   })
 
-  it('throws on no content', function () {
+  it('asserts on no content', function () {
     assert.throws(
       () => { xmlcompare('\n', '') },
       assert.AssertionError
     )
   })
 
-  it('throws on different number of children', function () {
+  it('asserts on different number of children', function () {
     assert.throws(
       () => { xmlcompare('<div></div>', '<div>\n</div>\n<div></div>') },
       assert.AssertionError
     )
   })
 
-  it('throws on content mismatch', function () {
+  it('asserts on content mismatch', function () {
     assert.throws(
       () => { xmlcompare('<div></div>', '<div>foo</div>') },
       assert.AssertionError
@@ -47,7 +47,7 @@ describe('xmlcompare', function () {
     xmlcompare(unclosedTag, unclosedTag)
   })
 
-  it('can throw on warnings', function () {
+  it('can assert on warnings', function () {
     const unclosedTag = '<img>'
     assert.throws(
       () => { xmlcompare(unclosedTag, unclosedTag, {ignoreWarnings: false}) },
