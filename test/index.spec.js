@@ -37,4 +37,8 @@ describe('xmlcompare', function () {
   it('works with buffers', function () {
     xmlcompare(Buffer.from('<div></div>'), Buffer.from('<div> </div>'))
   })
+
+  it('can ignore empty children', function () {
+    xmlcompare('<div></div><div></div>', '<div></div>\n<div></div>', {ignoreEmpty: true})
+  })
 })
