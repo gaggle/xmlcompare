@@ -1,0 +1,8 @@
+{
+  "name": "xmlcompare",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "author": "Jon Lauridsen <mail@jonlauridsen.com>",
+  "license": "ISC"
+}
