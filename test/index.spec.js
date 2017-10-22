@@ -41,4 +41,17 @@ describe('xmlcompare', function () {
   it('can ignore empty children', function () {
     xmlcompare('<div></div><div></div>', '<div></div>\n<div></div>', {ignoreEmpty: true})
   })
+
+  it('ignores warnings by default', function () {
+    const unclosedTag = '<img>'
+    xmlcompare(unclosedTag, unclosedTag)
+  })
+
+  it('can throw on warnings', function () {
+    const unclosedTag = '<img>'
+    assert.throws(
+      () => { xmlcompare(unclosedTag, unclosedTag, {ignoreWarnings: false}) },
+      assert.AssertionError
+    )
+  })
 })
