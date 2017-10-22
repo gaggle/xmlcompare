@@ -34,4 +34,11 @@ describe('strToXML', function () {
       Error
     )
   })
+
+  it('throws error on attribute warnings', function () {
+    assert.throws(
+      () => xmlutil.strToXML('<img>'),
+      Error
+    )
+  })
 })
