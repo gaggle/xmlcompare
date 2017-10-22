@@ -53,6 +53,13 @@ describe('xmlcompare', function () {
     xmlcompare('<div/><div/>', '<div/>\n<div/>', {ignoreEmpty: true})
   })
 
+  it('throws on content mismatch with ignore empty enabled', function () {
+    assert.throws(
+      () => { xmlcompare('<div/>', '<span/>', {ignoreEmpty: true}) },
+      assert.AssertionError
+    )
+  })
+
   it('ignores warnings by default', function () {
     const unclosedTag = '<img>'
     xmlcompare(unclosedTag, unclosedTag)
