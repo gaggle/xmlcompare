@@ -6,11 +6,11 @@ const xmlcompare = require('../lib/index')
 
 describe('xmlcompare', function () {
   it('matches two simple blocks', function () {
-    xmlcompare('<div></div>', '<div> </div>')
+    xmlcompare('<div/>', '<div> </div>')
   })
 
   it('matches multiple blocks', function () {
-    xmlcompare('<div></div>\n<div></div>', '<div></div> <div></div>')
+    xmlcompare('<div/>\n<div/>', '<div/> <div/>')
   })
 
   it('matches matching attributes', function () {
@@ -33,24 +33,24 @@ describe('xmlcompare', function () {
 
   it('asserts on different number of children', function () {
     assert.throws(
-      () => { xmlcompare('<div></div>', '<div>\n</div>\n<div></div>') },
+      () => { xmlcompare('<div/>', '<div>\n</div>\n<div/>') },
       assert.AssertionError
     )
   })
 
   it('asserts on content mismatch', function () {
     assert.throws(
-      () => { xmlcompare('<div></div>', '<div>foo</div>') },
+      () => { xmlcompare('<div/>', '<div>foo</div>') },
       assert.AssertionError
     )
   })
 
   it('works with buffers', function () {
-    xmlcompare(Buffer.from('<div></div>'), Buffer.from('<div> </div>'))
+    xmlcompare(Buffer.from('<div/>'), Buffer.from('<div> </div>'))
   })
 
   it('can ignore empty children', function () {
-    xmlcompare('<div></div><div></div>', '<div></div>\n<div></div>', {ignoreEmpty: true})
+    xmlcompare('<div/><div/>', '<div/>\n<div/>', {ignoreEmpty: true})
   })
 
   it('ignores warnings by default', function () {
