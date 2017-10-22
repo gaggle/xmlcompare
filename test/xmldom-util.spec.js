@@ -35,9 +35,15 @@ describe('strToXML', function () {
     )
   })
 
-  it('throws error on attribute warnings', function () {
+  it('ignores warnings by default', function () {
+    assert.ok(xmlutil.strToXML('<img>'))
+  })
+
+  it('allows control over warning handler', function () {
     assert.throws(
-      () => xmlutil.strToXML('<img>'),
+      () => xmlutil.strToXML('<img>', {
+        warning: function () { throw new Error('Stop') }
+      }),
       Error
     )
   })
