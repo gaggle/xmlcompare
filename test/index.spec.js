@@ -13,6 +13,17 @@ describe('xmlcompare', function () {
     xmlcompare('<div></div>\n<div></div>', '<div></div> <div></div>')
   })
 
+  it('matches matching attributes', function () {
+    xmlcompare('<div data-foo="bar"/>', '<div data-foo="bar"/>')
+  })
+
+  it('throws on mismatching attributes', function () {
+    assert.throws(
+      () => { xmlcompare('<div data-foo="bar"/>', '<div data-foo="spam"/>') },
+      assert.AssertionError
+    )
+  })
+
   it('asserts on no content', function () {
     assert.throws(
       () => { xmlcompare('\n', '') },
