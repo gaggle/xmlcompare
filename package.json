@@ -15,7 +15,7 @@
     "dom-compare": "^0.3.1",
     "lodash.merge": "^4.6.0",
     "lodash.zip": "^4.2.0",
-    "xmldom": "^0.1.27"
+    "xmldom-alpha": "git+https://github.com/valinaga/xmldom.git"
   },
   "devDependencies": {
     "mocha": "^4.0.1",
