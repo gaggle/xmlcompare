@@ -1,7 +1,6 @@
 {
   "name": "xmlcompare",
   "version": "0.0.0",
-  "description": "",
   "main": "lib/index.js",
   "scripts": {
     "lint:code": "codeclimate analyze",
