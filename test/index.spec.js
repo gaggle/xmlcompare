@@ -72,4 +72,8 @@ describe('xmlcompare', function () {
       assert.AssertionError
     )
   })
+
+  it('understands &mdash; entity', function () {
+    xmlcompare('<p>&mdash;</p>', '<p>&mdash;</p>')
+  })
 })
