@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gaggle/xmlcompare.svg?branch=master)](https://travis-ci.org/gaggle/xmlcompare)
+
 # xmlcompare
 Assert xml equality
 
