@@ -41,6 +41,13 @@ describe('xmlcompare', function () {
     )
   })
 
+  it('asserts on space-difference within pre-tag', function () {
+    assert.throws(
+      () => { xmlcompare('<pre>foo</pre>', '<pre>  foo</pre>') },
+      assert.AssertionError
+    )
+  })
+
   it('works with buffers', function () {
     xmlcompare(Buffer.from('<div/>'), Buffer.from('<div> </div>'))
   })
