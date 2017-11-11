@@ -9,10 +9,6 @@ describe('xmlcompare', function () {
     xmlcompare('<div/>', '<div> </div>')
   })
 
-  it('matches multiple blocks', function () {
-    xmlcompare('<div/>\n<div/>', '<div/> <div/>')
-  })
-
   it('matches matching attributes', function () {
     xmlcompare('<div data-foo="bar"/>', '<div data-foo="bar"/>')
   })
@@ -58,6 +54,10 @@ describe('xmlcompare', function () {
       () => { xmlcompare('<div/>', '<span/>', {ignoreEmpty: true}) },
       assert.AssertionError
     )
+  })
+
+  it('can ignore differences that does not alter semantics', function () {
+    xmlcompare('<div/>\n<div/>', '<div/><div/>', {ignoreEmpty: true})
   })
 
   it('ignores warnings by default', function () {
