@@ -17,7 +17,7 @@ describe('xmlcompare', function () {
     xmlcompare('<div data-foo="bar"/>', '<div data-foo="bar"/>')
   })
 
-  it('throws on mismatching attributes', function () {
+  it('asserts on mismatching attributes', function () {
     assert.throws(
       () => { xmlcompare('<div data-foo="bar"/>', '<div data-foo="spam"/>') },
       assert.AssertionError
